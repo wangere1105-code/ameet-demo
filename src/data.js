@@ -1,0 +1,185 @@
+const baseNodes = [
+  { id: "empty-office", title: "The Empty Office", access: "free" },
+  { id: "tea-room", title: "Late Night Tea Room", access: "free" },
+  { id: "small-misstep", title: "A Small Misstep", access: "free" },
+  { id: "unspoken", title: "Unspoken Thoughts", access: "paid" },
+  { id: "after-hours", title: "After Hours", access: "paid" },
+];
+
+export const characters = [
+  {
+    id: "chloe",
+    name: "Chloe Hart",
+    shortName: "Chloe",
+    title: "The Warm Daily Companion",
+    type: "Warm",
+    hook: "She’s happy you showed up. Maybe a little too happy.",
+    cta: "Visit the café",
+    tags: ["Warm", "Daily", "Comfort"],
+    sheetPosition: "0% 0%",
+    story: {
+      title: "One More Coffee",
+      premise: "The café is closing. Chloe keeps your usual cup warm anyway.",
+      setting: "Closing Time Café",
+      nodes: baseNodes.map((node, index) => ({ ...node, title: ["Your Usual", "Closing Time", "An Honest Answer", "Rain at the Door", "Walk Home"][index] })),
+      goal: "Give her a reason not to close up just yet.",
+      openingLine: "I was starting to think I’d have to drink this one for you.",
+    },
+    paywall: {
+      title: "Unlock Rainy Walk Home",
+      subtitle: "The café is closed. The conversation is not.",
+      price: "$1.99",
+      cta: "Walk Home with Chloe",
+    },
+  },
+  {
+    id: "ava",
+    name: "Ava Reed",
+    shortName: "Ava",
+    title: "The Late-Night Listener",
+    type: "Late-night",
+    hook: "For the nights when you don’t want advice. Just someone to stay.",
+    cta: "Call in at 2:17 AM",
+    tags: ["Late-night", "Listener", "Emotional"],
+    sheetPosition: "50% 0%",
+    story: {
+      title: "After the Signal",
+      premise: "The broadcast ended seven minutes ago. Ava is still on your line.",
+      setting: "Off-Air Studio",
+      nodes: baseNodes.map((node, index) => ({ ...node, title: ["The Call", "No Advice", "Dead Air", "Off-Air", "Until Morning"][index] })),
+      goal: "Tell her what you could not say while everyone was listening.",
+      openingLine: "We’re off air now. You don’t have to make it sound okay.",
+    },
+    paywall: {
+      title: "Unlock Off-Air Mode",
+      subtitle: "The broadcast is over. Ava stayed on the line.",
+      price: "$1.99",
+      cta: "Stay on the line",
+    },
+  },
+  {
+    id: "vanessa",
+    name: "Vanessa Cole",
+    shortName: "Vanessa",
+    title: "The Private Invitation",
+    type: "Private Tension",
+    hook: "She doesn’t chase. She chooses. Tonight, she chose you.",
+    cta: "Enter the elevator",
+    tags: ["Private", "Tension", "Selective"],
+    sheetPosition: "100% 0%",
+    story: {
+      title: "The Elevator Key",
+      premise: "Vanessa presses the private-floor button, then waits for your answer.",
+      setting: "Hotel Lobby, 11:38 PM",
+      nodes: baseNodes.map((node, index) => ({ ...node, title: ["The Look", "Going Up", "A Quiet Test", "Private Bar", "Her Choice"][index] })),
+      goal: "Show confidence without assuming you have already won.",
+      openingLine: "You can still step out. I won’t think less of you.",
+    },
+    paywall: {
+      title: "Unlock The Private Bar",
+      subtitle: "Vanessa does not invite everyone upstairs. She noticed you for a reason.",
+      price: "$1.99",
+      cta: "Continue with Vanessa",
+    },
+  },
+  {
+    id: "riley",
+    name: "Riley Brooks",
+    shortName: "Riley",
+    title: "The Playful Chaos",
+    type: "Playful",
+    hook: "She turns flirting into a side quest.",
+    cta: "Join the stream",
+    tags: ["Playful", "Fast", "Interactive"],
+    sheetPosition: "0% 100%",
+    story: {
+      title: "One Last Match",
+      premise: "The stream is over. Riley sends you a private invite instead of logging off.",
+      setting: "After-Stream Lobby",
+      nodes: baseNodes.map((node, index) => ({ ...node, title: ["Join Queue", "Friendly Fire", "Side Quest", "Private Lobby", "Bonus Round"][index] })),
+      goal: "Keep up with her without turning everything into a joke.",
+      openingLine: "Okay, chat is gone. Are you actually this brave one-on-one?",
+    },
+    paywall: {
+      title: "Unlock After-Stream DM",
+      subtitle: "The stream is over. Riley stayed online for you.",
+      price: "$1.99",
+      cta: "Continue privately",
+    },
+  },
+  {
+    id: "elena",
+    name: "Elena Marlowe",
+    shortName: "Elena",
+    title: "The Mature Guide",
+    type: "Guided",
+    hook: "She knows what you’re avoiding. She’ll ask anyway.",
+    cta: "Enter the workshop",
+    tags: ["Guided", "Mature", "Reflective"],
+    sheetPosition: "50% 100%",
+    story: {
+      title: "The Unwritten Line",
+      premise: "Class ended. Elena leaves one question on the board just for you.",
+      setting: "Evening Workshop",
+      nodes: baseNodes.map((node, index) => ({ ...node, title: ["The Prompt", "Read Aloud", "What You Avoid", "Private Note", "The Last Line"][index] })),
+      goal: "Answer plainly instead of giving her the polished version.",
+      openingLine: "That was a beautiful answer. Now give me the true one.",
+    },
+    paywall: {
+      title: "Unlock Private Prompt",
+      subtitle: "Elena has one question she would not ask in class.",
+      price: "$1.99",
+      cta: "Read the prompt",
+    },
+  },
+  {
+    id: "mina",
+    name: "Mina Shen",
+    shortName: "Mina",
+    title: "The Slow-Burn Strategist",
+    type: "Slow-burn",
+    hook: "She won’t fall for you easily. That’s the point.",
+    cta: "Stay After Hours",
+    tags: ["Smart", "Reserved", "Slow-burn"],
+    sheetPosition: "100% 100%",
+    story: {
+      title: "After Hours at the Office",
+      premise: "It’s late. The office is empty. Mina is still here. So are you.",
+      setting: "Late Night Tea Room",
+      nodes: baseNodes,
+      goal: "Say something that shows you’re not just passing time.",
+      openingLine: "You’re either very dedicated or very bad at leaving.",
+    },
+    paywall: {
+      title: "Unlock After Hours",
+      subtitle: "The last train is gone. Mina has stopped pretending not to notice.",
+      price: "$1.99",
+      cta: "Stay with Mina",
+    },
+  },
+];
+
+export const filters = ["All", "Warm", "Late-night", "Private Tension", "Playful", "Guided", "Slow-burn"];
+
+export const chatChoices = [
+  { id: 1, text: "You make staying here sound better.", effect: "warm_up" },
+  { id: 2, text: "What are you still doing here?", effect: "neutral" },
+  { id: 3, text: "I don’t like leaving when I’m not ready.", effect: "best" },
+  { id: 4, text: "You always look this calm?", effect: "warm_up" },
+];
+
+export const memories = [
+  { characterId: "chloe", text: "Chloe remembers your coffee order.", progress: 80 },
+  { characterId: "ava", text: "Ava remembers your hard nights.", progress: 40 },
+  { characterId: "mina", text: "Mina remembers last night’s talk.", progress: 72 },
+];
+
+export const replayOptions = [
+  "Be more restrained",
+  "Apologize cleanly",
+  "Tease carefully",
+  "Stay silent",
+  "Ask what line you crossed",
+];
+
+export const getCharacter = (id) => characters.find((character) => character.id === id) || characters[5];
